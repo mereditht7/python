@@ -1,0 +1,23 @@
+import random
+
+list = []
+def add_error (list, error):
+    
+    if len (list) < 10:
+        list.append(error)
+
+    else:
+        delta = abs(list[0]-list[-1])
+        print("delta", delta)
+        list.append(error)
+        list.pop(0)
+        return(delta)
+
+for x in range (100): 
+    random_number = random.randint(1,100)
+    print(random_number)
+    print(list)
+    delta = add_error(list,random_number)
+    if delta is not None and delta < 5:
+        print(delta)
+        break

@@ -1,0 +1,19 @@
+"""
+def factorial(x):
+    factorial = 1
+    for i in range (x):
+        factorial = factorial * (i+1)
+        print(factorial)
+    return(factorial)
+print (factorial (10))
+#creating factorials
+"""
+
+def factorial (n):
+    if n == 0 or n==1:
+        return (1)
+    print(n)
+    return (n*factorial(n-1))
+print(factorial(10))
+    #use recursive to find factorial
+

@@ -1,0 +1,130 @@
+"""
+x=0
+
+while(x<10):
+    print(x)
+
+    x = x + 1
+"""
+#while loops
+
+"""
+x=100
+
+while(x < 1001):
+
+    print(x)
+
+    x = x + 3
+"""
+#skipping every three numbers to 1000
+
+""""
+x = 0
+
+while(x<101):
+
+    x = x + 1
+
+    if x % 5 == 0:
+        continue
+
+    print(x)
+"""
+#printing everything 1-100 without multiples of five
+
+""""
+while(True):
+    user_input = input("please enter somthing: \n")
+   
+    if user_input == "stop":
+        break
+    print(user_input)
+
+print("code ended")
+"""
+#while loops with user input
+
+"""
+import random
+
+x = random.randint(1,1000)
+
+while(1):
+    user_input = int(input("guess a number: \n"))
+
+
+    if user_input == x:
+        print("you guessed it! \n")
+        break
+    elif user_input - x < 900:
+        print("you are within a 900 range")
+    elif user_input - x < 800:
+        print("you are within a 800 range")
+    elif user_input - x < 700:
+        print("you are within a 700 range")
+    elif user_input - x < 600:
+        print("you are within a 600 range")
+    elif user_input - x < 500:
+        print("you are within a 500 range")
+    elif user_input - x < 400:
+        print("you are within a 400 range")
+    elif user_input - x <300:
+        print("you are within 300")
+    elif user_input - x < 200:
+        print("you are within a 200 range")
+    elif user_input - x < 100:
+        print("you are within a 100 range")
+    elif user_input - x < 50:
+        print("you are within a 50 range")
+    elif user_input - x < 20:
+        print("you are within a 20 range")
+    elif user_input - x < 10:
+        print("warm")
+    elif user_input - x < 5:
+        print("hot")
+    elif user_input - x < 2:
+        print("burning")
+    else:
+        print("guess again! \n")
+""" 
+#guessing a number until you guess it right
+
+"""
+import random
+
+x = random.randint(1,1000)
+print(x)
+
+while(1):
+    user_input = int(input("guess a number: \n"))
+
+    if user_input == x:
+        print("you guessed it! \n")
+        break
+    elif user_input >= x:
+        print("you guessed higher")
+    elif user_input <= x:
+        print("you guessed lower")
+    else:
+        break
+"""
+#guessing a number(binary search)
+
+import random
+
+x = random.randint(0,110)
+print(x)
+
+while(0<x<1001):
+    user_input = int(input("guess a number: \n"))
+
+    if user_input == x:
+        print("you guessed it! \n")
+        break
+    elif user_input >= x:
+        print("you guessed higher")
+    elif user_input <= x:
+        print("you guessed lower")
+    else:
+        break
