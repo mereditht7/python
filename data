@@ -1,0 +1,21 @@
+import pandas as pd
+import glob
+
+# Load all IC CSVs from a directory
+files = glob.glob("IC*.csv")  # Make sure files are named like ICYYYY.csv
+dfs = []
+for file in files:
+    year = file[2:6]
+    df = pd.read_csv(file, usecols=["UNITID", "STABBR"])
+    df["Year"] = int(year)
+    dfs.append(df)
+
+# Concatenate
+df_all = pd.concat(dfs, ignore_index=True)
+
+# Count institutions per state per year
+counts = df_all.groupby(["Year", "STABBR"])["UNITID"].nunique().reset_index()
+counts.columns = ["Year", "State", "Institution_Count"]
+
+# Save for you
+counts.to_csv("state_institution_counts_1990_2023.csv", index=False)
