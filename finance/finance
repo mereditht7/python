@@ -1,0 +1,34 @@
+import yfinance as yf
+# Get data for Apple (AAPL)
+stock = yf.Ticker("AAPL")
+# Historical data
+data = stock.history(period="1mo")  # 1 month of data
+print(data)
+
+import yfinance as yf
+import csv
+# Step 1: Download data and save to CSV
+def download_and_save_csv(ticker, filename):
+    stock = yf.Ticker(ticker)
+    data = stock.history(period="max")
+    data.to_csv(filename)
+    print(f"Saved {ticker} data to {filename}")
+# Step 2: Read CSV and extract (date, close_price) tuples
+def parse_stock_csv(filename):
+    result = []
+    with open(filename, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            date = row['Date']
+            close_price = float(row['Close'])
+            result.append((date, close_price))
+    return result
+# Example usage
+if __name__ == "__main__":
+    filename = "aapl_stock_data.csv"
+    ticker = "AAPL"
+    download_and_save_csv(ticker, filename)
+    stock_data = parse_stock_csv(filename)
+    # Print first 5 rows
+    for entry in stock_data[:5]:
+        print(entry)
